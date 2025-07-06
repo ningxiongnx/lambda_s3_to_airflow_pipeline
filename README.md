@@ -30,47 +30,6 @@ This new design implements an **event-driven approach** using the following AWS 
 - **Operational Alerting:** Failures are monitored and notified via email alerts.
 
 ## Architecture
-S3 (File Upload)
-│
-▼
-S3 Event Notification
-│
-▼
-AWS Lambda (Trigger MWAA DAG)
-│
-▼
-Airflow DAG Execution (MWAA)
-│
-▼
-CloudWatch Logs + Alarm
-│
-▼
-SNS Alert (Email Notification)
-
-
-## Setup Instructions
-
-1. **Configure S3 Bucket Notification**
-   - Enable event notifications for `PUT` operations on the target folder.
-   - Use a filter to match file naming patterns (e.g., `rba_matchback_*.csv`).
-   - Set Lambda as the destination.
-
-2. **Deploy Lambda Function**
-   - Includes logic to call Airflow's REST API.
-   - Requires IAM permissions to invoke MWAA and access logs.
-   - Environment variables for DAG name, MWAA API endpoint, and authentication.
-
-3. **Enable MWAA DAG**
-   - DAG listens for Lambda-triggered executions.
-   - Handles file processing specific to the partner.
-
-4. **Configure CloudWatch Alarm & SNS**
-   - Create alarms for Lambda failure metrics.
-   - Subscribe team email to SNS topic for notifications.
-
-## Contact
-
-For issues, questions, or suggestions, please reach out to the data engineering team.
 
 
 ## Setup Instructions
