@@ -30,7 +30,7 @@ This new design implements an **event-driven approach** using the following AWS 
 - **Operational Alerting:** Failures are monitored and notified via email alerts.
 
 ## Architecture
-
+![Architecture Diagram](architecture_diagram.png)
 
 ## Setup Instructions
 
