@@ -1,0 +1,37 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "logs:CreateLogGroup",
+            "Resource": "arn:aws:logs:us-east-1:303024361932:*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+            ],
+            "Resource": [
+                "arn:aws:logs:us-east-1:303024361932:log-group:/aws/lambda/triggering_airflow_partner_ingestion_dag:*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": "airflow:GetEnvironment",
+            "Resource": "arn:aws:airflow:us-east-1:303024361932:environment/dataPipeline"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "airflow:CreateCliToken"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": "sns:Publish",
+            "Resource": "arn:aws:sns:us-east-1:303024361932:LambdaFailureAlert-triggering_airflow_partner_ingestion_dag"
+        }
+    ]
+}
