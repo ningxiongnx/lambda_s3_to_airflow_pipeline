@@ -40,12 +40,13 @@ This new design implements an **event-driven approach** using the following AWS 
    - Set Lambda as the destination.
 
 2. **Configure IAM Permissions**
+   - Create an IAM role for the Lamdba function
    - Requires IAM permissions to invoke MWAA and access logs.
     
-3. **Deploy Lambda Function**
+4. **Deploy Lambda Function**
    - Includes logic to call Airflow's REST API.
    - Environment variables for DAG name, MWAA API endpoint, and authentication.
 
-4. **Configure CloudWatch Alarm & SNS**
+5. **Configure CloudWatch Alarm & SNS**
    - Create alarms for Lambda failure metrics.
    - Subscribe team email to SNS topic for notifications.
